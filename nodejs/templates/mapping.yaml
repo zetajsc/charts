@@ -1,0 +1,21 @@
+{{- if and .Values.service.create .Values.service.mapping.enable -}}
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: {{ include "service.mappingName" . }}
+  labels:
+    {{- include "service.labels" . | nindent 4 }}
+spec:
+  prefix: {{ include "service.mappingPrefix" . }}
+  {{- if not .Values.service.mapping.namespace }}
+  service: {{ include "service.serviceName" . }}:{{ .Values.service.port }}
+  {{- else }}
+  service: {{ include "service.serviceName" . }}.{{ .Values.service.mapping.namespace }}:{{ .Values.service.port }}
+  {{- end }}
+  {{- if .Values.service.mapping.cors }}
+  cors:
+    origins: {{ printf "%s" .Values.service.mapping.cors.origins | quote }}
+    methods: {{ .Values.service.mapping.cors.methods }}
+    headers: {{ .Values.service.mapping.cors.headers }}
+  {{- end }}
+{{- end }}
