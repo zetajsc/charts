@@ -10,7 +10,7 @@
 ### Add helm repository
 
 ```
-helm repo add https://raw.githubusercontent.com/zetajsc/charts/master
+helm repo add zetajsc https://raw.githubusercontent.com/zetajsc/charts/master
 ```
 
 
