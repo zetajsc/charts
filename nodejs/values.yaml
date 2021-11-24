@@ -52,8 +52,9 @@ service:
     enable: true
     # Overrides the mapping name, default is ${chartFullName}
     name: 'example-mapping'
+    hostname: '*'
     # Overrides the mapping prefix, default is /${.Release.name}
-    prefix: ""
+    prefix: ''
     # Overrides the mapping namespace, will route to a service in a different namespace
     # namespace: ""
 

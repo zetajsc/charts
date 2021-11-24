@@ -6,6 +6,7 @@ metadata:
   labels:
     {{- include "service.labels" . | nindent 4 }}
 spec:
+  hostname: {{ include "service.mappingHostname" . | quote }}
   prefix: {{ include "service.mappingPrefix" . }}
   {{- if not .Values.service.mapping.namespace }}
   service: {{ include "service.serviceName" . }}:{{ .Values.service.port }}
