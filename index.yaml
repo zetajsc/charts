@@ -2,10 +2,10 @@ apiVersion: v1
 entries:
   fjob-service:
   - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2021-11-24T14:50:48.83895+07:00"
+    appVersion: 1.0.1
+    created: "2021-11-24T14:52:20.437703+07:00"
     description: A Helm chart for Kubernetes
-    digest: db9f962231de2c67c420a992b9e65f13eeeb251565945bef29e15c778423cc27
+    digest: 8489a00cc063f2448ed8084b66cd6427a719453e42d6344e8fd6eeba4de61223
     name: fjob-service
     type: application
     urls:
@@ -13,7 +13,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-24T14:50:48.838529+07:00"
+    created: "2021-11-24T14:52:20.436464+07:00"
     description: A Helm chart for Kubernetes
     digest: 1c0825a930ed506534c9c293f45a2a829da7d148bca2a0b9e2a838db7d8a6222
     name: fjob-service
@@ -21,4 +21,4 @@ entries:
     urls:
     - releases/fjob-service-1.0.0.tgz
     version: 1.0.0
-generated: "2021-11-24T14:50:48.837628+07:00"
+generated: "2021-11-24T14:52:20.435292+07:00"
