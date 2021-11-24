@@ -99,9 +99,9 @@ Create the hostname of the mapping to use
 */}}
 {{- define "service.mappingHostname" -}}
 {{- if and .Values.service.create .Values.service.mapping.enable }}
-{{- printf "*" }} {{- default .Release.Name .Values.service.mapping.hostname }}
+{{- default "*" .Values.service.mapping.hostname }}
 {{- else }}
-{{- default "*" .Values.service.mapping.prefix }}
+{{- printf "*" }}
 {{- end }}
 {{- end }}
 
