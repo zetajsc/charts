@@ -3,7 +3,7 @@ entries:
   fjob-service:
   - apiVersion: v2
     appVersion: 1.3.0
-    created: "2021-11-25T17:43:37.734537+07:00"
+    created: "2021-11-25T17:47:53.335671+07:00"
     description: A Helm chart for Kubernetes
     digest: d5a630c7737be0bae5eb115cf913c95b1fd92d153544f0da0b1f9730ee20f547
     name: fjob-service
@@ -13,7 +13,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2021-11-25T17:43:37.733847+07:00"
+    created: "2021-11-25T17:47:53.334955+07:00"
     description: A Helm chart for Kubernetes
     digest: 65db17b63945bb0498383095ce096f97954791916982b44cb50358e4197db80f
     name: fjob-service
@@ -23,7 +23,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2021-11-25T17:43:37.733145+07:00"
+    created: "2021-11-25T17:47:53.333805+07:00"
     description: A Helm chart for Kubernetes
     digest: 8489a00cc063f2448ed8084b66cd6427a719453e42d6344e8fd6eeba4de61223
     name: fjob-service
@@ -33,8 +33,18 @@ entries:
     version: 1.0.1
   secret:
   - apiVersion: v2
+    appVersion: 1.3.0
+    created: "2021-11-25T17:47:53.336181+07:00"
+    description: A Helm chart for Kubernetes
+    digest: 0fe6bc15fbd0941a9913c1e3d0d71271ec7c10f403149dd8dce6c1cf7fb80e79
+    name: secret
+    type: application
+    urls:
+    - releases/secret-1.3.0.tgz
+    version: 1.3.0
+  - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-25T17:43:37.735155+07:00"
+    created: "2021-11-25T17:47:53.335989+07:00"
     description: A Helm chart for Kubernetes
     digest: 63809471632fcaf2e9a045363c793165a97ec8036eec7060f93325537a9c6b27
     name: secret
@@ -42,4 +52,4 @@ entries:
     urls:
     - releases/secret-1.0.0.tgz
     version: 1.0.0
-generated: "2021-11-25T17:43:37.731771+07:00"
+generated: "2021-11-25T17:47:53.332507+07:00"
