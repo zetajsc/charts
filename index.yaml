@@ -3,7 +3,7 @@ entries:
   fjob-service:
   - apiVersion: v2
     appVersion: 1.3.0
-    created: "2021-11-25T17:37:19.896825+07:00"
+    created: "2021-11-25T17:43:37.734537+07:00"
     description: A Helm chart for Kubernetes
     digest: d5a630c7737be0bae5eb115cf913c95b1fd92d153544f0da0b1f9730ee20f547
     name: fjob-service
@@ -13,7 +13,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2021-11-25T17:37:19.895667+07:00"
+    created: "2021-11-25T17:43:37.733847+07:00"
     description: A Helm chart for Kubernetes
     digest: 65db17b63945bb0498383095ce096f97954791916982b44cb50358e4197db80f
     name: fjob-service
@@ -23,7 +23,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2021-11-25T17:37:19.894989+07:00"
+    created: "2021-11-25T17:43:37.733145+07:00"
     description: A Helm chart for Kubernetes
     digest: 8489a00cc063f2448ed8084b66cd6427a719453e42d6344e8fd6eeba4de61223
     name: fjob-service
@@ -33,33 +33,13 @@ entries:
     version: 1.0.1
   secret:
   - apiVersion: v2
-    appVersion: 1.2.0
-    created: "2021-11-25T17:37:19.898081+07:00"
-    description: A Helm chart for Kubernetes
-    digest: 757f7ab68dd27d3f6df7b9e0a53da79e737d1be772c813e95e5831084bbc5688
-    name: secret
-    type: application
-    urls:
-    - releases/secret-1.2.0.tgz
-    version: 1.2.0
-  - apiVersion: v2
-    appVersion: 1.1.0
-    created: "2021-11-25T17:37:19.897564+07:00"
-    description: A Helm chart for Kubernetes
-    digest: 64b61f031210b36106476b65da63dfd4ed49aa625f835f230140b305f6ba49d5
-    name: secret
-    type: application
-    urls:
-    - releases/secret-1.1.0.tgz
-    version: 1.1.0
-  - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-11-25T17:37:19.897295+07:00"
+    created: "2021-11-25T17:43:37.735155+07:00"
     description: A Helm chart for Kubernetes
-    digest: 2c0b88e980d57603cbf2a518b987363c23b796a070884e068692ad631d1fa581
+    digest: 63809471632fcaf2e9a045363c793165a97ec8036eec7060f93325537a9c6b27
     name: secret
     type: application
     urls:
     - releases/secret-1.0.0.tgz
     version: 1.0.0
-generated: "2021-11-25T17:37:19.89393+07:00"
+generated: "2021-11-25T17:43:37.731771+07:00"
