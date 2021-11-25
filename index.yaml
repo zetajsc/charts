@@ -3,7 +3,7 @@ entries:
   fjob-service:
   - apiVersion: v2
     appVersion: 1.3.0
-    created: "2021-11-25T17:50:55.784159+07:00"
+    created: "2021-11-25T17:58:02.238315+07:00"
     description: A Helm chart for Kubernetes
     digest: d5a630c7737be0bae5eb115cf913c95b1fd92d153544f0da0b1f9730ee20f547
     name: fjob-service
@@ -13,7 +13,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2021-11-25T17:50:55.783496+07:00"
+    created: "2021-11-25T17:58:02.237712+07:00"
     description: A Helm chart for Kubernetes
     digest: 65db17b63945bb0498383095ce096f97954791916982b44cb50358e4197db80f
     name: fjob-service
@@ -23,7 +23,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2021-11-25T17:50:55.782609+07:00"
+    created: "2021-11-25T17:58:02.236772+07:00"
     description: A Helm chart for Kubernetes
     digest: 8489a00cc063f2448ed8084b66cd6427a719453e42d6344e8fd6eeba4de61223
     name: fjob-service
@@ -33,8 +33,18 @@ entries:
     version: 1.0.1
   secret:
   - apiVersion: v2
+    appVersion: 1.5.0
+    created: "2021-11-25T17:58:02.239337+07:00"
+    description: A Helm chart for Kubernetes
+    digest: 111c47849d2f43e4bd3f0321a5cb4a65eebeee41bdff9ab39e303d70473c7141
+    name: secret
+    type: application
+    urls:
+    - releases/secret-1.5.0.tgz
+    version: 1.5.0
+  - apiVersion: v2
     appVersion: 1.4.0
-    created: "2021-11-25T17:50:55.784746+07:00"
+    created: "2021-11-25T17:58:02.23863+07:00"
     description: A Helm chart for Kubernetes
     digest: 6caaf2ddfe207ffbf6edacfd1d1e11cee453a07b212a2c4749c922135c7bab8b
     name: secret
@@ -42,14 +52,4 @@ entries:
     urls:
     - releases/secret-1.4.0.tgz
     version: 1.4.0
-  - apiVersion: v2
-    appVersion: 1.3.0
-    created: "2021-11-25T17:50:55.784539+07:00"
-    description: A Helm chart for Kubernetes
-    digest: 6764353a9c9057e0849bdfb915ce75179079538bb142d7cf4bebee49bd08153d
-    name: secret
-    type: application
-    urls:
-    - releases/secret-1.3.0.tgz
-    version: 1.3.0
-generated: "2021-11-25T17:50:55.781338+07:00"
+generated: "2021-11-25T17:58:02.235585+07:00"
