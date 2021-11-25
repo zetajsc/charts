@@ -113,3 +113,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+env:
+  enable: true
+  normal: []
+  secret: []
