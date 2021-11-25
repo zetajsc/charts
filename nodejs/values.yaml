@@ -115,6 +115,8 @@ tolerations: []
 affinity: {}
 
 env:
-  enable: true
-  normal: []
-  secret: []
+  enable: false
+  normal:
+    MOUNT_WITH_VALUE: 'demo'
+  secret:
+    MOUNT_VIA_SECRET: 'demo'

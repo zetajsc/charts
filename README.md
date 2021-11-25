@@ -28,7 +28,7 @@ Packages a chart into a versioned chart archive file
 helm package [CHART_PATH] [...] [flags]
 
 # Example 
-helm package ./webpress-server -d releases
+helm package ./nodejs -d releases
 ```
 
 Read the current directory and generate an index file based on the charts found.
