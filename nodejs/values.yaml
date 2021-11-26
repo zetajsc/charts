@@ -133,3 +133,5 @@ useSharedSecret:
       to: DATABASE_USERNAME
     - from: DATABASE_PASSWORD
       to: DATABASE_PASSWORD
+    - from: RABBITMQ_URI
+      to: RABBITMQ_URI
