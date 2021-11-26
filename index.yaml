@@ -3,7 +3,7 @@ entries:
   fjob-service:
   - apiVersion: v2
     appVersion: 1.3.0
-    created: "2021-11-25T17:58:02.238315+07:00"
+    created: "2021-11-26T13:43:17.422951+07:00"
     description: A Helm chart for Kubernetes
     digest: d5a630c7737be0bae5eb115cf913c95b1fd92d153544f0da0b1f9730ee20f547
     name: fjob-service
@@ -13,7 +13,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2021-11-25T17:58:02.237712+07:00"
+    created: "2021-11-26T13:43:17.422175+07:00"
     description: A Helm chart for Kubernetes
     digest: 65db17b63945bb0498383095ce096f97954791916982b44cb50358e4197db80f
     name: fjob-service
@@ -23,7 +23,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2021-11-25T17:58:02.236772+07:00"
+    created: "2021-11-26T13:43:17.421451+07:00"
     description: A Helm chart for Kubernetes
     digest: 8489a00cc063f2448ed8084b66cd6427a719453e42d6344e8fd6eeba4de61223
     name: fjob-service
@@ -31,10 +31,38 @@ entries:
     urls:
     - releases/fjob-service-1.0.1.tgz
     version: 1.0.1
+  redis:
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 6.0.9
+    created: "2021-11-26T13:43:17.42972+07:00"
+    description: Open source, advanced key-value store. It is often referred to as
+      a data structure server since keys can contain strings, hashes, lists, sets
+      and sorted sets.
+    digest: 7a0f1cab69aa2f8473e15aa570dcf0695f6123ca08916b2e95a290b153f8aabd
+    home: https://github.com/bitnami/charts/tree/master/bitnami/redis
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    maintainers:
+    - email: containers@bitnami.com
+      name: Bitnami
+    - email: cedric@desaintmartin.fr
+      name: desaintmartin
+    name: redis
+    sources:
+    - https://github.com/bitnami/bitnami-docker-redis
+    - http://redis.io/
+    urls:
+    - releases/redis-12.3.3.tgz
+    version: 12.3.3
   secret:
   - apiVersion: v2
     appVersion: 1.5.0
-    created: "2021-11-25T17:58:02.239337+07:00"
+    created: "2021-11-26T13:43:17.430631+07:00"
     description: A Helm chart for Kubernetes
     digest: 111c47849d2f43e4bd3f0321a5cb4a65eebeee41bdff9ab39e303d70473c7141
     name: secret
@@ -44,7 +72,7 @@ entries:
     version: 1.5.0
   - apiVersion: v2
     appVersion: 1.4.0
-    created: "2021-11-25T17:58:02.23863+07:00"
+    created: "2021-11-26T13:43:17.430263+07:00"
     description: A Helm chart for Kubernetes
     digest: 6caaf2ddfe207ffbf6edacfd1d1e11cee453a07b212a2c4749c922135c7bab8b
     name: secret
@@ -52,4 +80,4 @@ entries:
     urls:
     - releases/secret-1.4.0.tgz
     version: 1.4.0
-generated: "2021-11-25T17:58:02.235585+07:00"
+generated: "2021-11-26T13:43:17.420121+07:00"
