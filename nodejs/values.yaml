@@ -116,3 +116,20 @@ affinity: {}
 
 env:
   enable: false
+  secret: []
+  normal: []
+
+useSharedSecret:
+  enable: false
+  name: fjob-secret
+  key:
+    - from: DATABASE_HOST
+      to: DATABASE_HOST
+    - from: DATABASE_PORT
+      to: DATABASE_PORT
+    - from: DATABASE_DB_NAME
+      to: DATABASE_DB_NAME
+    - from: DATABASE_USERNAME
+      to: DATABASE_USERNAME
+    - from: DATABASE_PASSWORD
+      to: DATABASE_PASSWORD

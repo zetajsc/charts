@@ -23,11 +23,24 @@ Expand the name of the secret that created by chart if needed.
     secretKeyRef:
       name: {{ include "service.secretName" $dot }}
       key: {{ $key }}
-{{- end}}
+{{- end }}
 {{- range $key, $val := .Values.env.normal }}
 - name: {{ $key }}
   value: {{ $val | quote }}
-{{- end}}
+{{- end }}
+{{- end }}
+
+{{- define "helpers.list-env-shared" }}
+{{- if .Values.useSharedSecret.enable }}
+{{- $secretName  := .Values.useSharedSecret.name -}}
+{{- range $key, $val := .Values.useSharedSecret.key }}
+- name: {{ $val.to }}
+  valueFrom:
+    secretKeyRef:
+      name: {{ $secretName }}
+      key: {{ $val.from }}
+{{- end }}
+{{- end }}
 {{- end }}
 
 {{/*
