@@ -1,79 +1,154 @@
 {{/* vim: set filetype=mustache: */}}
-
 {{/*
-Return the proper PHPMyAdmin image name
+Expand the name of the chart.
 */}}
-{{- define "phpmyadmin.image" -}}
-{{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
-{{- end -}}
+{{- define "service.name" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- end }}
 
+{{/* vim: set filetype=mustache: */}}
 {{/*
-Return the proper image name (for the metrics image)
+Expand the name of the secret that created by chart if needed.
 */}}
-{{- define "phpmyadmin.metrics.image" -}}
-{{ include "common.images.image" (dict "imageRoot" .Values.metrics.image "global" .Values.global) }}
-{{- end -}}
+{{- define "service.secretName" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- end }}
 
-{{/*
-Return the proper Docker Image Registry Secret Names
-*/}}
-{{- define "phpmyadmin.imagePullSecrets" -}}
-{{- include "common.images.pullSecrets" (dict "images" (list .Values.image .Values.metrics.image) "global" .Values.global) -}}
-{{- end -}}
+
+{{- define "helpers.list-env-variables"}}
+{{- $dot := . }}
+{{- range $key, $val := .Values.env.secret }}
+- name: {{ $key }}
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "service.secretName" $dot }}
+      key: {{ $key }}
+{{- end }}
+{{- range $key, $val := .Values.env.normal }}
+- name: {{ $key }}
+  value: {{ $val | quote }}
+{{- end }}
+{{- end }}
+
+{{- define "helpers.list-env-shared" }}
+{{- if .Values.useSharedSecret.enable }}
+{{- $secretName  := .Values.useSharedSecret.name -}}
+{{- range $key, $val := .Values.useSharedSecret.key }}
+- name: {{ $val.to }}
+  valueFrom:
+    secretKeyRef:
+      name: {{ $secretName }}
+      key: {{ $val.from }}
+{{- end }}
+{{- end }}
+{{- end }}
 
 {{/*
 Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+If release name contains chart name it will be used as a full name.
 */}}
-{{- define "phpmyadmin.mariadb.fullname" -}}
-{{- printf "%s-%s" .Release.Name "mariadb" | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
-
+{{- define "service.fullname" -}}
+{{- if .Values.fullnameOverride }}
+{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $name := default .Chart.Name .Values.nameOverride }}
+{{- if contains $name .Release.Name }}
+{{- .Release.Name | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}
+{{- end }}
 
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "phpmyadmin.tlsSecretName" -}}
+{{- define "service.chart" -}}
+{{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Common labels
+*/}}
+{{- define "service.labels" -}}
+helm.sh/chart: {{ include "service.chart" . }}
+{{ include "service.selectorLabels" . }}
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end }}
+
+{{/*
+TLS secret name
+*/}}
+{{- define "service.tlsSecretName" -}}
 {{- printf "%s" .Chart.Name | replace "+" "_" | trunc 63 | trimSuffix "-" -}}-cert
 {{- end -}}
 
+{{/*
+Selector labels
+*/}}
+{{- define "service.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "service.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
 
 {{/*
-Create a fully qualified database name if the database is part of the same release than phpmyadmin.
-We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+Create the name of the service account to use
 */}}
-{{- define "phpmyadmin.dbfullname" -}}
-{{- printf "%s-%s" .Release.Name .Values.db.chartName | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
+{{- define "service.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "service.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- end }}
+{{- end }}
+
 
 {{/*
-Compile all warnings into a single message, and call fail.
+Create the name of the service to use
 */}}
-{{- define "phpmyadmin.validateValues" -}}
-{{- $messages := list -}}
-{{- $messages := append $messages (include "phpmyadmin.validateValues.db.ssl" .) -}}
-{{- $messages := without $messages "" -}}
-{{- $message := join "\n" $messages -}}
+{{- define "service.serviceName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "service.fullname" .) .Values.service.name }}
+{{- else }}
+{{- default "default" .Values.service.name }}
+{{- end }}
+{{- end }}
 
-{{- if $message -}}
-{{-   printf "\nVALUES VALIDATION:\n%s" $message | fail -}}
-{{- end -}}
-{{- end -}}
 
-{{/* Validate values of phpMyAdmin - must provide a valid database ssl configuration */}}
-{{- define "phpmyadmin.validateValues.db.ssl" -}}
-{{- if and .Values.db.enableSsl (empty .Values.db.ssl.clientKey) (empty .Values.db.ssl.clientCertificate) (empty .Values.db.ssl.caCertificate) -}}
-phpMyAdmin: db.ssl
-    Invalid database ssl configuration. You enabled SSL for the connection
-    between phpMyAdmin and the database but no key/certificates were provided
-    (--set db.ssl.clientKey="xxxx", --set db.ssl.clientCertificate="yyyy")
-{{- end -}}
-{{- end -}}
 
 {{/*
-Check if there are rolling tags in the images
+Create the name of the mapping to use
 */}}
-{{- define "phpmyadmin.checkRollingTags" -}}
-{{- include "common.warnings.rollingTag" .Values.image }}
-{{- include "common.warnings.rollingTag" .Values.metrics.image }}
-{{- end -}}
+{{- define "service.mappingName" -}}
+{{- if .Values.service.mapping.enable }}
+{{- default (include "service.fullname" .) .Values.service.mapping.name }}
+{{- else }}
+{{- default "default" .Values.service.mapping.name }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create the hostname of the mapping to use
+*/}}
+{{- define "service.mappingHostname" -}}
+{{- if and .Values.service.create .Values.service.mapping.enable }}
+{{- default "*" .Values.service.mapping.hostname }}
+{{- else }}
+{{- printf "*" }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create the prefix of the mapping to use
+*/}}
+{{- define "service.mappingPrefix" -}}
+{{- if and .Values.service.create .Values.service.mapping.enable }}
+{{- printf "/" }} {{- default .Release.Name .Values.service.mapping.prefix }}
+{{- else }}
+{{- default "default" .Values.service.mapping.prefix }}
+{{- end }}
+{{- end }}

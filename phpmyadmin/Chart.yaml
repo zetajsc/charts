@@ -1,32 +1,23 @@
-annotations:
-  category: Infrastructure
 apiVersion: v2
-appVersion: 5.0.4
-dependencies:
-  - name: common
-    repository: https://charts.bitnami.com/bitnami
-    tags:
-      - bitnami-common
-    version: 1.x.x
-  - condition: db.bundleTestDB
-    name: mariadb
-    repository: https://charts.bitnami.com/bitnami
-    tags:
-      - phpmyadmin-database
-    version: 9.x.x
-description: phpMyAdmin is an mysql administration frontend
-engine: gotpl
-home: https://github.com/bitnami/charts/tree/master/bitnami/phpmyadmin
-icon: https://bitnami.com/assets/stacks/phpmyadmin/img/phpmyadmin-stack-220x234.png
-keywords:
-  - mariadb
-  - mysql
-  - phpmyadmin
-maintainers:
-  - email: containers@bitnami.com
-    name: Bitnami
 name: phpmyadmin
-sources:
-  - https://github.com/bitnami/bitnami-docker-phpmyadmin
-  - https://www.phpmyadmin.net/
-version: 8.0.3
+description: A Helm chart for Kubernetes
+
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 1.6.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+appVersion: 1.6.0

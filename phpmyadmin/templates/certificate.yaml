@@ -4,13 +4,16 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: {{ template "phpmyadmin.tlsSecretName" $ }}
-  namespace: {{ $.Release.Namespace }}
+  name: {{ template "service.tlsSecretName" $ }}
+  namespace: cert-manager
 spec:
-  secretName: {{ template "phpmyadmin.tlsSecretName" $ }}
+  secretName: {{ template "service.tlsSecretName" $ }}
   issuerRef:
     name: {{ $.Values.ingress.issuerRef }}
     kind: ClusterIssuer
+  secretTemplate:
+    annotations:
+      kubed.appscode.com/sync: ''
   dnsNames:
   {{- if .tlsHosts }}
   {{- range $host := .tlsHosts }}
