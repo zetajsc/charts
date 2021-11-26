@@ -1,0 +1,50 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ include "phpmyadmin.mariadb.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels: 
+    app.kubernetes.io/component: phpmyadmin-ingress
+  annotations:
+    {{- if .Values.ingress.certManager }}
+    kubernetes.io/tls-acme: "true"
+    {{- end }}
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ .name | quote }}
+      http:
+        paths:
+        {{- range .extraPaths }}
+          - path: {{ .path }}
+            backend:
+              serviceName: {{ .backend.serviceName }}
+              servicePort: {{ .backend.servicePort}}
+        {{- end }}
+        {{- $paths := default (list "/") .paths }}
+        {{- range $paths }}
+          - path: {{ . }}
+            backend:
+              serviceName: {{ template "common.names.fullname" $ }}
+              servicePort: http
+        {{- end }}
+  {{- end }}
+  tls:
+  {{- range .Values.ingress.hosts }}
+  {{- if .tls }}
+    - hosts:
+    {{- if .tlsHosts }}
+      {{- range $host := .tlsHosts }}
+        - {{ $host }}
+      {{- end }}
+    {{- else }}
+        - {{ .name }}
+    {{- end }}
+      secretName: {{ template "phpmyadmin.tlsSecretName" $ }}
+  {{- end }}
+{{- end }}
+{{- end }}

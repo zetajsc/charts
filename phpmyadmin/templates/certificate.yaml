@@ -1,0 +1,25 @@
+{{- if .Values.ingress.certManager -}}
+{{- range .Values.ingress.hosts }}
+{{- if .tls }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ template "phpmyadmin.tlsSecretName" $ }}
+  namespace: {{ $.Release.Namespace }}
+spec:
+  secretName: {{ template "phpmyadmin.tlsSecretName" $ }}
+  issuerRef:
+    name: {{ $.Values.ingress.issuerRef }}
+    kind: ClusterIssuer
+  dnsNames:
+  {{- if .tlsHosts }}
+  {{- range $host := .tlsHosts }}
+    - {{ $host }}
+  {{- end }}
+  {{- else }}
+    - {{ .name }}
+  {{- end }}
+{{- end }}
+
+{{- end }}
+{{- end }}
