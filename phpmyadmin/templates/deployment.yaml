@@ -60,6 +60,8 @@ spec:
           env:
             - name: TZ
               value: Asia/Ho_Chi_Minh
+            - name: PMA_ABSOLUTE_URI
+              value: {{ include "service.pmaUri" . }}
             {{- include "helpers.list-env-variables" . | indent 12 }}
             {{- include "helpers.list-env-shared" . | indent 12 }}
       {{- with .Values.nodeSelector }}

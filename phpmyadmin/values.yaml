@@ -52,7 +52,7 @@ service:
     enable: true
     # Overrides the mapping name, default is ${chartFullName}
     name: 'example-mapping'
-    hostname: '*'
+    hostname: 'api.staging.fjob.com.vn'
     # Overrides the mapping prefix, default is /${.Release.name}
     prefix: ''
     # Overrides the mapping namespace, will route to a service in a different namespace

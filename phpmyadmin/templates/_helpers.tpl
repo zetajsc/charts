@@ -152,3 +152,10 @@ Create the prefix of the mapping to use
 {{- default "default" .Values.service.mapping.prefix }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create the PMA_ABSOLUTE_URI to use
+*/}}
+{{- define "service.pmaUri" -}}
+{{- printf "https://" }}{{ include "service.mappingHostname" . }}{{ include "service.mappingPrefix" . }}
+{{- end }}
