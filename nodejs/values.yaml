@@ -135,3 +135,5 @@ useSharedSecret:
       to: DATABASE_PASSWORD
     - from: RABBITMQ_URI
       to: RABBITMQ_URI
+    - from: REDIS_URI
+      to: REDIS_URI
