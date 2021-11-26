@@ -124,16 +124,6 @@ useSharedSecret:
   name: fjob-secret
   key:
     - from: DATABASE_HOST
-      to: DATABASE_HOST
+      to: PMA_HOST
     - from: DATABASE_PORT
-      to: DATABASE_PORT
-    - from: DATABASE_DB_NAME
-      to: DATABASE_DB_NAME
-    - from: DATABASE_USERNAME
-      to: DATABASE_USERNAME
-    - from: DATABASE_PASSWORD
-      to: DATABASE_PASSWORD
-    - from: RABBITMQ_URI
-      to: RABBITMQ_URI
-    - from: REDIS_URI
-      to: REDIS_URI
+      to: PMA_PORT
