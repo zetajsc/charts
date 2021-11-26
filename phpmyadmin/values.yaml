@@ -122,8 +122,6 @@ env:
     - MEMORY_LIMIT: "512m"
     - MAX_EXECUTION_TIME: "600"
     - PMA_QUERYHISTORYMAX: "25"
-    - PMA_PMADB: ''
-    - PMA_USER: ''
 
 useSharedSecret:
   enable: false
