@@ -26,7 +26,7 @@ Expand the name of the secret that created by chart if needed.
 {{- end }}
 {{- range $key, $val := .Values.env.normal }}
 - name: {{ $key }}
-  value: {{ $val | quote }}
+  value: {{ $val | toString }}
 {{- end }}
 {{- end }}
 
