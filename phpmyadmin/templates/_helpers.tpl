@@ -17,16 +17,9 @@ Expand the name of the secret that created by chart if needed.
 
 {{- define "helpers.list-env-variables"}}
 {{- $dot := . }}
-{{- range $key, $val := .Values.env.secret }}
-- name: {{ $key }}
-  valueFrom:
-    secretKeyRef:
-      name: {{ include "service.secretName" $dot }}
-      key: {{ $key }}
-{{- end }}
 {{- range $key, $val := .Values.env.normal }}
 - name: {{ $key }}
-  value: {{ $val | toString }}
+  value: {{ $val | toString | quote }}
 {{- end }}
 {{- end }}
 
