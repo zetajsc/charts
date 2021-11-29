@@ -2,8 +2,18 @@ apiVersion: v1
 entries:
   fjob-service:
   - apiVersion: v2
+    appVersion: 1.8.0
+    created: "2021-11-29T10:56:00.411188+07:00"
+    description: A Helm chart for Kubernetes
+    digest: 1e9b4dd22dc6dc2b51647eb8fdd85fb29c649b441dbd9fe729d5a10edc632757
+    name: fjob-service
+    type: application
+    urls:
+    - releases/fjob-service-1.8.0.tgz
+    version: 1.8.0
+  - apiVersion: v2
     appVersion: 1.7.0
-    created: "2021-11-29T10:53:54.336963+07:00"
+    created: "2021-11-29T10:56:00.410551+07:00"
     description: A Helm chart for Kubernetes
     digest: 0138d771bb6dd6ca704436e7a849d89e4b3352c8c1deb77360d34ed9ba1d67ec
     name: fjob-service
@@ -13,7 +23,7 @@ entries:
     version: 1.7.0
   - apiVersion: v2
     appVersion: 1.6.0
-    created: "2021-11-29T10:53:54.33601+07:00"
+    created: "2021-11-29T10:56:00.409554+07:00"
     description: A Helm chart for Kubernetes
     digest: 39159bd04af031351ebc3ff6d002b173be2c44e60a5482d1c277fa628c183fa8
     name: fjob-service
@@ -23,7 +33,7 @@ entries:
     version: 1.6.0
   - apiVersion: v2
     appVersion: 1.5.0
-    created: "2021-11-29T10:53:54.334664+07:00"
+    created: "2021-11-29T10:56:00.408891+07:00"
     description: A Helm chart for Kubernetes
     digest: 3d4fab386bc698d7ab1d181bf8ff7a9e49abd82b719a8c835ede495c89f57c2d
     name: fjob-service
@@ -33,7 +43,7 @@ entries:
     version: 1.5.0
   - apiVersion: v2
     appVersion: 1.4.0
-    created: "2021-11-29T10:53:54.327929+07:00"
+    created: "2021-11-29T10:56:00.408256+07:00"
     description: A Helm chart for Kubernetes
     digest: 202bfae496356056e658dd01c229704c7e179bc356b386bbb2cb97b689999937
     name: fjob-service
@@ -43,7 +53,7 @@ entries:
     version: 1.4.0
   - apiVersion: v2
     appVersion: 1.3.0
-    created: "2021-11-29T10:53:54.32715+07:00"
+    created: "2021-11-29T10:56:00.40759+07:00"
     description: A Helm chart for Kubernetes
     digest: d5a630c7737be0bae5eb115cf913c95b1fd92d153544f0da0b1f9730ee20f547
     name: fjob-service
@@ -53,7 +63,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2021-11-29T10:53:54.325802+07:00"
+    created: "2021-11-29T10:56:00.406825+07:00"
     description: A Helm chart for Kubernetes
     digest: 65db17b63945bb0498383095ce096f97954791916982b44cb50358e4197db80f
     name: fjob-service
@@ -63,7 +73,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2021-11-29T10:53:54.325082+07:00"
+    created: "2021-11-29T10:56:00.402641+07:00"
     description: A Helm chart for Kubernetes
     digest: 8489a00cc063f2448ed8084b66cd6427a719453e42d6344e8fd6eeba4de61223
     name: fjob-service
@@ -73,8 +83,18 @@ entries:
     version: 1.0.1
   phpmyadmin:
   - apiVersion: v2
+    appVersion: 1.15.0
+    created: "2021-11-29T10:56:00.418124+07:00"
+    description: A Helm chart for Kubernetes
+    digest: 7c5cdda7d73f5890aee55a12b6577c4a4413d14d23c2f6114ac8ecda5882fdac
+    name: phpmyadmin
+    type: application
+    urls:
+    - releases/phpmyadmin-1.15.0.tgz
+    version: 1.15.0
+  - apiVersion: v2
     appVersion: 1.14.0
-    created: "2021-11-29T10:53:54.340721+07:00"
+    created: "2021-11-29T10:56:00.417613+07:00"
     description: A Helm chart for Kubernetes
     digest: 1a69a096a767f4421ed24cd3ec87dfa47a81567f0ca1abc947bab6f8f39c3e9d
     name: phpmyadmin
@@ -84,7 +104,7 @@ entries:
     version: 1.14.0
   - apiVersion: v2
     appVersion: 1.13.0
-    created: "2021-11-29T10:53:54.340041+07:00"
+    created: "2021-11-29T10:56:00.413963+07:00"
     description: A Helm chart for Kubernetes
     digest: e8ae26f56c710fcd19bdb8848cdb8895ec27845618cf5a8b418be9c6d1e6ed77
     name: phpmyadmin
@@ -94,7 +114,7 @@ entries:
     version: 1.13.0
   - apiVersion: v2
     appVersion: 1.12.0
-    created: "2021-11-29T10:53:54.339341+07:00"
+    created: "2021-11-29T10:56:00.413269+07:00"
     description: A Helm chart for Kubernetes
     digest: 927b9c1a26b940b8e6632c9f1a8c92b3ebe3919f8197c8ccc8881aad0c82fbdd
     name: phpmyadmin
@@ -104,7 +124,7 @@ entries:
     version: 1.12.0
   - apiVersion: v2
     appVersion: 1.11.0
-    created: "2021-11-29T10:53:54.338585+07:00"
+    created: "2021-11-29T10:56:00.41252+07:00"
     description: A Helm chart for Kubernetes
     digest: 40af523770234b1b695b5388f73f9edc0d4f5dec5922ae09defe3a84e83f4d19
     name: phpmyadmin
@@ -114,7 +134,7 @@ entries:
     version: 1.11.0
   - apiVersion: v2
     appVersion: 1.10.0
-    created: "2021-11-29T10:53:54.337757+07:00"
+    created: "2021-11-29T10:56:00.411851+07:00"
     description: A Helm chart for Kubernetes
     digest: 7a59c3a9df9b2bca94b2f19dddf7e1b08a21deff8eb8108ee9bab0baa9be7e19
     name: phpmyadmin
@@ -124,7 +144,7 @@ entries:
     version: 1.10.0
   - apiVersion: v2
     appVersion: 1.9.0
-    created: "2021-11-29T10:53:54.344597+07:00"
+    created: "2021-11-29T10:56:00.421101+07:00"
     description: A Helm chart for Kubernetes
     digest: e7285fff815cdda380545bbd96fd80403db7bfbe0c6830f5f5638090cfcc7d8f
     name: phpmyadmin
@@ -134,7 +154,7 @@ entries:
     version: 1.9.0
   - apiVersion: v2
     appVersion: 1.8.0
-    created: "2021-11-29T10:53:54.342647+07:00"
+    created: "2021-11-29T10:56:00.420481+07:00"
     description: A Helm chart for Kubernetes
     digest: 4fa7af4e7c6d254e65f0d0cbd639d7be96104181c3e9d034b09ad555f8b4bd5b
     name: phpmyadmin
@@ -144,7 +164,7 @@ entries:
     version: 1.8.0
   - apiVersion: v2
     appVersion: 1.7.0
-    created: "2021-11-29T10:53:54.341973+07:00"
+    created: "2021-11-29T10:56:00.419822+07:00"
     description: A Helm chart for Kubernetes
     digest: 2111af1315bb7293b699cef0631b713c19f856c22c1dd5a2529538ef3fd4f8ce
     name: phpmyadmin
@@ -154,7 +174,7 @@ entries:
     version: 1.7.0
   - apiVersion: v2
     appVersion: 1.6.0
-    created: "2021-11-29T10:53:54.34133+07:00"
+    created: "2021-11-29T10:56:00.419193+07:00"
     description: A Helm chart for Kubernetes
     digest: c78f624e0f731f0ff67afe74297bc909193f4bcb896f3d1871c072c447c973b0
     name: phpmyadmin
@@ -167,7 +187,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 3.8.9
-    created: "2021-11-29T10:53:54.348039+07:00"
+    created: "2021-11-29T10:56:00.424587+07:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -198,7 +218,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 6.0.9
-    created: "2021-11-29T10:53:54.351053+07:00"
+    created: "2021-11-29T10:56:00.429028+07:00"
     description: Open source, advanced key-value store. It is often referred to as
       a data structure server since keys can contain strings, hashes, lists, sets
       and sorted sets.
@@ -224,7 +244,7 @@ entries:
   secret:
   - apiVersion: v2
     appVersion: 1.6.0
-    created: "2021-11-29T10:53:54.351877+07:00"
+    created: "2021-11-29T10:56:00.42968+07:00"
     description: A Helm chart for Kubernetes
     digest: f1b0287377b61df131427b3d51c6a18315a85e47aebda354ee3eea0783e13457
     name: secret
@@ -234,7 +254,7 @@ entries:
     version: 1.6.0
   - apiVersion: v2
     appVersion: 1.5.0
-    created: "2021-11-29T10:53:54.351505+07:00"
+    created: "2021-11-29T10:56:00.429375+07:00"
     description: A Helm chart for Kubernetes
     digest: 111c47849d2f43e4bd3f0321a5cb4a65eebeee41bdff9ab39e303d70473c7141
     name: secret
@@ -242,4 +262,4 @@ entries:
     urls:
     - releases/secret-1.5.0.tgz
     version: 1.5.0
-generated: "2021-11-29T10:53:54.323424+07:00"
+generated: "2021-11-29T10:56:00.400865+07:00"

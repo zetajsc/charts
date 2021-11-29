@@ -56,7 +56,10 @@ service:
     # Overrides the mapping prefix, default is /${.Release.name}
     prefix: ''
     # Overrides the mapping namespace, will route to a service in a different namespace
-    # namespace: ""
+    timeout_ms: 4000
+    idle_timeout_ms: 500000
+    connect_timeout_ms: 2000
+    namespace: 'default'
 
 ingress:
   enabled: false

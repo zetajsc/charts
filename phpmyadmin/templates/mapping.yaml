@@ -13,10 +13,7 @@ spec:
   {{- else }}
   service: {{ include "service.serviceName" . }}.{{ .Values.service.mapping.namespace }}:{{ .Values.service.port }}
   {{- end }}
-  {{- if .Values.service.mapping.cors }}
-  cors:
-    origins: {{ printf "%s" .Values.service.mapping.cors.origins | quote }}
-    methods: {{ .Values.service.mapping.cors.methods }}
-    headers: {{ .Values.service.mapping.cors.headers }}
-  {{- end }}
+  timeout_ms: {{ .Values.service.mapping.timeout_ms }}
+  idle_timeout_ms: {{ .Values.service.mapping.idle_timeout_ms }}
+  connect_timeout_ms: {{ .Values.service.mapping.connect_timeout_ms }}
 {{- end }}
