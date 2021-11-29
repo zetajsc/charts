@@ -34,11 +34,11 @@ Expand the name of the secret that created by chart if needed.
 {{- if .Values.useSharedSecret.enable }}
 {{- $secretName  := .Values.useSharedSecret.name -}}
 {{- range $key, $val := .Values.useSharedSecret.key }}
-- name: {{ $val.to }}
+- name: {{ $val }}
   valueFrom:
     secretKeyRef:
       name: {{ $secretName }}
-      key: {{ $val.from }}
+      key: {{ $key }}
 {{- end }}
 {{- end }}
 {{- end }}
