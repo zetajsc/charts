@@ -125,7 +125,8 @@ affinity: {}
 env:
   enable: false
   secret: []
-  normal: []
+  normal:
+    DATABASE_DB_NAME: fjob-staging
 
 useSharedSecret:
   enable: false
@@ -133,7 +134,6 @@ useSharedSecret:
   key:
     DATABASE_HOST: DATABASE_HOST
     DATABASE_PORT: DATABASE_PORT
-    DATABASE_DB_NAME: DATABASE_DB_NAME
     DATABASE_USERNAME: DATABASE_USERNAME
     DATABASE_PASSWORD: DATABASE_PASSWORD
     RABBITMQ_URI: RABBITMQ_URI
