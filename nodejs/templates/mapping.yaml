@@ -18,7 +18,7 @@ spec:
   connect_timeout_ms: {{ .Values.service.mapping.connect_timeout_ms }}
   {{- if .Values.service.mapping.cors.enable }}
   cors:
-    origins: {{ printf "%s" .Values.service.mapping.cors.origins | quote }}
+    origins: {{ .Values.service.mapping.cors.origins }}
     methods: {{ .Values.service.mapping.cors.methods }}
     headers: {{ .Values.service.mapping.cors.headers }}
   {{- end }}
