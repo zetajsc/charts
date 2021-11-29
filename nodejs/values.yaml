@@ -62,8 +62,11 @@ service:
     namespace: 'default'
     cors:
       enable: false
+      # origins: ['*']
       origins: ''
+      # methods: ['POST', 'GET', 'OPTIONS', 'PUT', 'DELETE', 'PATCH']
       methods: ''
+      # headers: ['Content-Type', 'Authorization']
       headers: ''
 
 ingress:
