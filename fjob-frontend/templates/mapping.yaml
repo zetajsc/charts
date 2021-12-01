@@ -2,7 +2,7 @@
 apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
-  name: {{ include "service.mappingName" . }}-{{ .Values.service.create }}-{{ .Values.service.mapping.enable }}
+  name: {{ include "service.mappingName" . }}
   labels:
     {{- include "service.labels" . | nindent 4 }}
 spec:
