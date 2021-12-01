@@ -70,50 +70,16 @@ service:
       headers: ''
 
 ingress:
-  enabled: true
+  enabled: false
   annotations:
     {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  hosts:
-    - name: staging.fjob.com.vn
-      paths: ['/']
-      ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
-      extraPaths: []
-      backend:
-        serviceName: fjob-frontend
-        servicePort: 3000
-
-      ## Set this to true in order to enable TLS on the ingress record
-      tls: true
-
-      ## Optionally specify the TLS hosts for the ingress record
-      ## Useful when the Ingress controller supports www-redirection
-      ## If not specified, the above host name will be used
-      tlsHosts:
-        - staging.fjob.com.vn
-    - name: fjob.com.vn
-      paths: ['/']
-      ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
-      extraPaths: []
-      backend:
-        serviceName: fjob-frontend
-        servicePort: 3000
-
-      ## Set this to true in order to enable TLS on the ingress record
-      tls: true
-
-      ## Optionally specify the TLS hosts for the ingress record
-      ## Useful when the Ingress controller supports www-redirection
-      ## If not specified, the above host name will be used
-      tlsHosts:
-        - fjob.com.vn
+  hosts: ''
   certManager:
-    enable: true
+    enabled: false
     issuerRef: letsencrypt-fjob-issuer
-    hosts:
-      - staging.fjob.com.vn
-      - fjob.com.vn
+    hosts: ''
 
 resources:
   {}
