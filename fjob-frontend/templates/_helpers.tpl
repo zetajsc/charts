@@ -134,8 +134,8 @@ Create the prefix of the mapping to use
 */}}
 {{- define "service.mappingPrefix" -}}
 {{- if and .Values.service.create .Values.service.mapping.enable }}
-{{- printf "/" }} {{- default .Release.Name .Values.service.mapping.prefix }}
+{{- .Values.service.mapping.prefix }}
 {{- else }}
-{{- default "default" .Values.service.mapping.prefix }}
+{{- default "/" .Values.service.mapping.prefix }}
 {{- end }}
 {{- end }}
