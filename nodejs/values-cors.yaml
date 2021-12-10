@@ -1,0 +1,140 @@
+# Default values for service.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: 'latest'
+
+# imagePullSecrets: [{ "name": "regcred" }]
+imagePullSecrets: ''
+nameOverride: ''
+fullnameOverride: ''
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ''
+
+podAnnotations: {}
+
+podSecurityContext:
+  {}
+  # fsGroup: 2000
+
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  # Specifies whether a service should be created
+  create: true
+  name: service-example
+  protocol: TCP
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+  mapping:
+    # enable ambassador mapping
+    enable: true
+    # Overrides the mapping name, default is ${chartFullName}
+    name: 'example-mapping'
+    hostname: '*'
+    # Overrides the mapping prefix, default is /${.Release.name}
+    prefix: ''
+    # Overrides the mapping namespace, will route to a service in a different namespace
+    timeout_ms: 4000
+    idle_timeout_ms: 500000
+    connect_timeout_ms: 2000
+    namespace: 'default'
+    cors:
+      enable: true
+      origins: ['fjob.vn']
+      methods: ['POST', 'GET', 'OPTIONS', 'PUT', 'DELETE', 'PATCH']
+      headers: ['Content-Type', 'Authorization']
+
+ingress:
+  enabled: false
+  annotations:
+    {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths: []
+  issuerRef: letsencrypt-fjob-issuer
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources:
+  {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+livenessProbe:
+  enabled: false
+  initialDelaySeconds: 30
+  periodSeconds: 5
+  timeoutSeconds: 60
+  successThreshold: 1
+  failureThreshold: 5
+readinessProbe:
+  enabled: false
+  initialDelaySeconds: 30
+  periodSeconds: 5
+  timeoutSeconds: 60
+  successThreshold: 1
+  failureThreshold: 5
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env:
+  enable: false
+  secret: []
+  normal:
+    DATABASE_DB_NAME: fjob-staging
+
+useSharedSecret:
+  enable: false
+  name: fjob-secret
+  key:
+    DATABASE_HOST: DATABASE_HOST
+    DATABASE_PORT: DATABASE_PORT
+    DATABASE_USERNAME: DATABASE_USERNAME
+    DATABASE_PASSWORD: DATABASE_PASSWORD
+    RABBITMQ_URI: RABBITMQ_URI
+    REDIS_URI: REDIS_URI
