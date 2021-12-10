@@ -104,6 +104,7 @@ autoscaling:
 
 livenessProbe:
   enabled: false
+  path: healthz
   initialDelaySeconds: 30
   periodSeconds: 5
   timeoutSeconds: 60
@@ -111,6 +112,7 @@ livenessProbe:
   failureThreshold: 5
 readinessProbe:
   enabled: false
+  path: healthz
   initialDelaySeconds: 30
   periodSeconds: 5
   timeoutSeconds: 60
