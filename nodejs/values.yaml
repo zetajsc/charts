@@ -140,9 +140,8 @@ useSharedSecret:
     REDIS_URI: REDIS_URI
 
 useSharedConfigMap:
-  enable: true
+  enable: false
   name: fjob-secret-config
   volumeName: fjob-shared-config-volume
-  mountPath: 'app'
-  key:
-    dummy: 'dummy.conf'
+  mountPath: 'config-data'
+  key: []

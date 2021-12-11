@@ -74,6 +74,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-
       volumes:
-        {{- include "helpers.list-configmap-volume-shared" . | indent 8 }}
+        {{- if .Values.useSharedConfigMap.enable }}
+        name: {{ .Values.useSharedConfigMap.volumeName }}
+        configMap:
+          name: {{ .Values.useSharedConfigMap.name }}
+          items:
+          {{- include "helpers.list-configmap-volume-shared" . | indent 12 }}
+        {{- end }}
