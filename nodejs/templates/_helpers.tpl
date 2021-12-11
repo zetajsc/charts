@@ -60,8 +60,8 @@ Expand the name of the secret that created by chart if needed.
 
 {{- define "helpers.list-configmap-shared" }}
 {{- if .Values.useSharedConfigMap.enable }}
-- name: {{- .Values.useSharedConfigMap.volumeName }}
-  mountPath: {{- .Values.useSharedConfigMap.mountPath }}
+- name: {{ .Values.useSharedConfigMap.volumeName }}
+  mountPath: {{ .Values.useSharedConfigMap.mountPath }}
 {{- end }}
 {{- end }}
 
