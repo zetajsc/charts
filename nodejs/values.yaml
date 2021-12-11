@@ -138,3 +138,9 @@ useSharedSecret:
     DATABASE_PASSWORD: DATABASE_PASSWORD
     RABBITMQ_URI: RABBITMQ_URI
     REDIS_URI: REDIS_URI
+
+useSharedConfigMap:
+  enable: true
+  name: fjob-secret-config
+  key:
+    dummy: dummy.json

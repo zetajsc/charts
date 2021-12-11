@@ -43,6 +43,30 @@ Expand the name of the secret that created by chart if needed.
 {{- end }}
 {{- end }}
 
+{{- define "helpers.list-configmap-volume-shared" }}
+{{- if .Values.useSharedConfigMap.enable }}
+{{- $configMapName  := .Values.useSharedConfigMap.name -}}
+{{- range $key, $val := .Values.useSharedConfigMap.key }}
+- name: {{ $key }}
+  configMap:
+    name: {{ $configMapName }}
+    items:
+      - key: {{ $key }}
+        path: {{ $val }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{- define "helpers.list-configmap-shared" }}
+{{- if .Values.useSharedConfigMap.enable }}
+{{- $configMapName  := .Values.useSharedConfigMap.name -}}
+{{- range $key, $val := .Values.useSharedConfigMap.key }}
+- name: {{ $key }}
+  mountPath: {{ $val }}
+{{- end }}
+{{- end }}
+{{- end }}
+
 {{/*
 Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).

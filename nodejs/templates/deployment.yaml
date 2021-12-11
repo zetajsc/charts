@@ -58,10 +58,10 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-            - name: TZ
-              value: Asia/Ho_Chi_Minh
             {{- include "helpers.list-env-variables" . | indent 12 }}
             {{- include "helpers.list-env-shared" . | indent 12 }}
+          volumeMounts:
+            {{- include "helpers.list-configmap-shared" . | indent 12 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -75,9 +75,5 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
 
-      {{- /*
-      # volumes:
-      #   - name: data
-      #     persistentVolumeClaim:
-      #       claimName: {{ .Values.persistence.existingClaim }}
-      */}}
+      volumes:
+        {{- include "helpers.list-configmap-volume-shared" . | indent 8 }}
