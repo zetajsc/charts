@@ -47,7 +47,7 @@ Expand the name of the secret that created by chart if needed.
 {{- if .Values.useSharedConfigMap.enable }}
 {{- $configMapName  := .Values.useSharedConfigMap.name -}}
 {{- range $key, $val := .Values.useSharedConfigMap.key }}
-- name: {{ $key }}
+- name: {{- .Values.useSharedConfigMap.volumeName }}
   configMap:
     name: {{ $configMapName }}
     items:
@@ -61,8 +61,8 @@ Expand the name of the secret that created by chart if needed.
 {{- if .Values.useSharedConfigMap.enable }}
 {{- $configMapName  := .Values.useSharedConfigMap.name -}}
 {{- range $key, $val := .Values.useSharedConfigMap.key }}
-- name: {{ $key }}
-  mountPath: {{ $val }}
+- name: {{- .Values.useSharedConfigMap.volumeName }}
+  mountPath: {{- .Values.useSharedConfigMap.mountPath }}
 {{- end }}
 {{- end }}
 {{- end }}

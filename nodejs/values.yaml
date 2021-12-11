@@ -142,5 +142,6 @@ useSharedSecret:
 useSharedConfigMap:
   enable: true
   name: fjob-secret-config
-  key:
-    dummy: dummy.json
+  volumeName: fjob-shared-config-volume
+  mountPath: 'app'
+  key: []
