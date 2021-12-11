@@ -144,4 +144,5 @@ useSharedConfigMap:
   name: fjob-secret-config
   volumeName: fjob-shared-config-volume
   mountPath: 'app'
-  key: []
+  key:
+    dummy: 'dummy.conf'

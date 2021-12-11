@@ -46,8 +46,9 @@ Expand the name of the secret that created by chart if needed.
 {{- define "helpers.list-configmap-volume-shared" }}
 {{- if .Values.useSharedConfigMap.enable }}
 {{- $configMapName  := .Values.useSharedConfigMap.name -}}
+{{- $volumeName  := .Values.useSharedConfigMap.volumeName -}}
 {{- range $key, $val := .Values.useSharedConfigMap.key }}
-- name: {{- .Values.useSharedConfigMap.volumeName }}
+- name: {{ $volumeName }}
   configMap:
     name: {{ $configMapName }}
     items:
@@ -61,6 +62,7 @@ Expand the name of the secret that created by chart if needed.
 {{- if .Values.useSharedConfigMap.enable }}
 - name: {{- .Values.useSharedConfigMap.volumeName }}
   mountPath: {{- .Values.useSharedConfigMap.mountPath }}
+{{- end }}
 {{- end }}
 
 {{/*
