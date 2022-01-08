@@ -1,6 +1,4 @@
-{{- if .Values.ingress.certManager -}}
-{{- range .Values.ingress.hosts }}
-{{- if .tls }}
+{{- if .Values.ingress.certManager.enabled -}}
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -9,20 +7,13 @@ metadata:
 spec:
   secretName: {{ template "service.tlsSecretName" $ }}
   issuerRef:
-    name: {{ $.Values.ingress.issuerRef }}
+    name: {{ $.Values.ingress.certManager.issuerRef }}
     kind: ClusterIssuer
   secretTemplate:
     annotations:
       kubed.appscode.com/sync: ''
   dnsNames:
-  {{- if .tlsHosts }}
-  {{- range $host := .tlsHosts }}
+  {{- range $host := .Values.ingress.certManager.hosts }}
     - {{ $host }}
   {{- end }}
-  {{- else }}
-    - {{ .name }}
-  {{- end }}
-{{- end }}
-
-{{- end }}
 {{- end }}
