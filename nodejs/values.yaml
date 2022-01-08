@@ -73,13 +73,12 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - example.com
-  certManager:
-    enabled: false
-    issuerRef: letsencrypt-fjob-issuer
-    hosts:
-      - example.com
-
+    - host: chart-example.local
+  issuerRef: letsencrypt-fjob-issuer
+  tls:
+    - secretName: chart-example-tls
+      hosts:
+        - chart-example.local
 
 resources:
   {}

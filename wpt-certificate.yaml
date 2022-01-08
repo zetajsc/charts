@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: fjob-service-cert
+  namespace: cert-manager
+spec:
+  secretName: fjob-service-cert
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  secretTemplate:
+    annotations:
+      kubed.appscode.com/sync: ''
+  dnsNames:
+    - api.wpt.fjob.com.vn

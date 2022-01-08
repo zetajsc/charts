@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: wpt-api-fjob-service
+  namespace: wpt
+  labels:
+    helm.sh/chart: fjob-service-2.12.0
+    app.kubernetes.io/name: fjob-service
+    app.kubernetes.io/instance: wpt-api
+    app.kubernetes.io/version: "2.12.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: service
+  annotations:
+    kubernetes.io/tls-acme: "true"
+spec:
+  rules:
+    - host: api.wpt.fjob.com.vn
+      http:
+        paths:
+          - path: "/"
+            backend:
+              serviceName: service-example
+              servicePort: 80
+  tls:
+    - host: api.wpt.fjob.com.vn
+      secretName: fjob-service-cert

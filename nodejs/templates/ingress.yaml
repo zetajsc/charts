@@ -15,20 +15,27 @@ metadata:
     {{- end }}
 spec:
   rules:
-  {{- range $ingressHost := .Values.ingress.hosts }}
-    - host: {{ $ingressHost }}
+  {{- range .Values.ingress.hosts }}
+    - host: {{ .name }}
       http:
         paths:
-          - path: "/"
+          - path: {{ default "/" .path }}
             backend:
-              serviceName: {{ $.Values.service.name }}
-              servicePort: {{ $.Values.service.port }}
+              serviceName: {{ .backend.serviceName }}
+              servicePort: {{ .backend.servicePort }}
   {{- end }}
-  {{- if .Values.ingress.certManager.enabled }}
   tls:
-  {{- range $h := .Values.ingress.certManager.hosts }}
-    - host: {{ $h }}
+  {{- range .Values.ingress.hosts }}
+  {{- if .tls }}
+    - hosts:
+    {{- if .tlsHosts }}
+      {{- range $host := .tlsHosts }}
+        - {{ $host }}
+      {{- end }}
+    {{- else }}
+        - {{ .name }}
+    {{- end }}
       secretName: {{ template "service.tlsSecretName" $ }}
   {{- end }}
-  {{- end }}
+{{- end }}
 {{- end }}
